@@ -4,7 +4,11 @@
   "dependencies": {
     "@rails/actioncable": "^6.0.2-1",
     "@rails/ujs": "^6.0.2-1",
-    "@rails/webpacker": "4.2.2"
+    "@rails/webpacker": "4.2.2",
+    "exports-loader": "^0.7.0",
+    "expose-loader": "^0.7.5",
+    "imports-loader": "^0.8.0",
+    "lodash": "^4.17.15"
   },
   "version": "0.1.0",
   "devDependencies": {

@@ -7,6 +7,10 @@ import "regenerator-runtime/runtime"
 
 import ujs from "@rails/ujs"
 
+import Gmaps from "src/gmaps_google"
+
+console.log('Gmaps', Gmaps)
+
 ujs.start()
 
 
