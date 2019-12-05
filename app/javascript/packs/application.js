@@ -7,6 +7,8 @@ import "regenerator-runtime/runtime"
 
 import ujs from "@rails/ujs"
 
+import "../states"
+
 ujs.start()
 
 
