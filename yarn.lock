@@ -1868,6 +1868,11 @@ chokidar@^3.4.0:
   optionalDependencies:
     fsevents "~2.1.2"
 
+chosen-js@^1.8.7:
+  version "1.8.7"
+  resolved "https://registry.yarnpkg.com/chosen-js/-/chosen-js-1.8.7.tgz#9bfa5597f5081d602ff4ae904af9aef33265bb1d"
+  integrity sha512-eVdrZJ2U5ISdObkgsi0od5vIJdLwq1P1Xa/Vj/mgxkMZf14DlgobfB6nrlFi3kW4kkvKLsKk4NDqZj1MU1DCpw==
+
 chownr@^1.1.1, chownr@^1.1.2:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
@@ -3651,6 +3656,14 @@ import-local@2.0.0, import-local@^2.0.0:
     pkg-dir "^3.0.0"
     resolve-cwd "^2.0.0"
 
+imports-loader@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/imports-loader/-/imports-loader-0.8.0.tgz#030ea51b8ca05977c40a3abfd9b4088fe0be9a69"
+  integrity sha512-kXWL7Scp8KQ4552ZcdVTeaQCZSLW+e6nJfp3cwUMB673T7Hr98Xjx5JK+ql7ADlJUvj1JS5O01RLbKoutN5QDQ==
+  dependencies:
+    loader-utils "^1.0.2"
+    source-map "^0.6.1"
+
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
@@ -4050,6 +4063,11 @@ jest-worker@^25.4.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
+jquery@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
+  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
+
 js-base64@^2.1.8:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.2.tgz#313b6274dda718f714d00b3330bbae6e38e90209"
@@ -4218,7 +4236,7 @@ loader-utils@1.2.3:
     emojis-list "^2.0.0"
     json5 "^1.0.1"
 
-loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
+loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
   integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
