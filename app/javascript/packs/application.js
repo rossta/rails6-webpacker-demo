@@ -6,7 +6,6 @@ import "core-js/stable"
 import "regenerator-runtime/runtime"
 
 import ujs from "@rails/ujs"
-import "channels"
 
 ujs.start()
 
