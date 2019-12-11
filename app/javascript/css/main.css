@@ -1,0 +1,10 @@
+img {
+  max-width: 75vh;
+}
+
+.burritos {
+  background-image: url("../images/burritos.jpg");
+  background-position: center;
+  max-width: 75vh;
+  height: 50vh;
+}
