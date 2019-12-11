@@ -1,2 +1,9 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Yummy food</h1>
+<div>
+  <p>This picture of guacamole is rendered from the image_pack_tag helper (Rails pointing to the Webpack-bundled image url in the packs/manifest.json file).</p>
+  <p><%= image_pack_tag('media/images/guacamole.jpg') %></p>
+</div>
+<div>
+  <p>This picture of guacamole is rendered from the image_pack_tag helper with a Webpack-compiled WEBP version.</p>
+  <p><%= image_pack_tag('media/images/guacamole.webp') %></p>
+</div>
