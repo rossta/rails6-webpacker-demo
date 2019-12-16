@@ -4,7 +4,9 @@
   "dependencies": {
     "@rails/actioncable": "^6.0.2-1",
     "@rails/ujs": "^6.0.2-1",
-    "@rails/webpacker": "4.2.2"
+    "@rails/webpacker": "4.2.2",
+    "active_storage_drag_and_drop": "^0.3.4",
+    "expose-loader": "^0.7.5"
   },
   "version": "0.1.0",
   "devDependencies": {
