@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app contains several examples of using Rails 6 and Webpack to load selected JavaScript dependencies. Often I created these demos to answer questions on StackOverflow.
 
-Things you may want to cover:
+Check out the [branches in the main repository](https://github.com/rossta/rails6-webpacker-demo/branches), including:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* [Importing images](https://github.com/rossta/rails6-webpacker-demo/tree/example/images)
+* [Pikaday demo](https://github.com/rossta/rails6-webpacker-demo/tree/example/pikaday)
+* [Select2 demo](https://github.com/rossta/rails6-webpacker-demo/tree/example/select2)
+* [Gmaps4Rails demo](https://github.com/rossta/rails6-webpacker-demo/tree/example/gmaps4rails)
+* [Chosen demo](https://github.com/rossta/rails6-webpacker-demo/tree/example/chosen)
