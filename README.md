@@ -4,8 +4,10 @@ This app contains several examples of using Rails 6 and Webpack to load selected
 
 Check out the [branches in the main repository](https://github.com/rossta/rails6-webpacker-demo/branches), including:
 
-* [Importing images](https://github.com/rossta/rails6-webpacker-demo/tree/example/images)
-* [Pikaday demo](https://github.com/rossta/rails6-webpacker-demo/tree/example/pikaday)
-* [Select2 demo](https://github.com/rossta/rails6-webpacker-demo/tree/example/select2)
-* [Gmaps4Rails demo](https://github.com/rossta/rails6-webpacker-demo/tree/example/gmaps4rails)
-* [Chosen demo](https://github.com/rossta/rails6-webpacker-demo/tree/example/chosen)
+* [Importing images](https://github.com/rossta/rails6-webpacker-demo/compare/example/images)
+* [React with CSS-in-JS](https://github.com/rossta/rails6-webpacker-demo/compare/example/react-image)
+* [CSS Modules](https://github.com/rossta/rails6-webpacker-demo/compare/example/css-module)
+* [Pikaday demo](https://github.com/rossta/rails6-webpacker-demo/compare/example/pikaday)
+* [Select2 demo](https://github.com/rossta/rails6-webpacker-demo/compare/example/select2)
+* [Gmaps4Rails demo](https://github.com/rossta/rails6-webpacker-demo/compare/example/gmaps4rails)
+* [Chosen demo](https://github.com/rossta/rails6-webpacker-demo/compare/example/chosen)
