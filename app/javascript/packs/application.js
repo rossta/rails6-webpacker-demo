@@ -7,8 +7,14 @@ import "regenerator-runtime/runtime"
 
 import ujs from "@rails/ujs"
 
+import render from '../lib/fake-react'
+import Card from '../components/Card'
+
 ujs.start()
 
+document.addEventListener('DOMContentLoaded', () => {
+  render(document.body.appendChild(document.createElement('div')), Card, { title: 'My Card' })
+})
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
