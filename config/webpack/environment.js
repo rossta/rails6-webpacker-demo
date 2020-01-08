@@ -1,3 +1,11 @@
-const { environment } = require('@rails/webpacker')
+    const { environment } = require('@rails/webpacker')
 
-module.exports = environment
+    environment.loaders.append('opentok-layout', {
+      test: require.resolve('opentok-layout-js'),
+      use: [{
+        loader: 'expose-loader',
+        options: 'initLayoutContainer'
+      }]
+    })
+
+    module.exports = environment

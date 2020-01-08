@@ -2677,6 +2677,11 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
+expose-loader@^0.7.5:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/expose-loader/-/expose-loader-0.7.5.tgz#e29ea2d9aeeed3254a3faa1b35f502db9f9c3f6f"
+  integrity sha512-iPowgKUZkTPX5PznYsmifVj9Bob0w2wTHVkt/eYNPSzyebkUgIedmskf/kcfEIWpiWjg3JRjnW+a17XypySMuw==
+
 express@^4.17.1:
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
@@ -4706,6 +4711,11 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   integrity sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
   dependencies:
     wrappy "1"
+
+opentok-layout-js@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/opentok-layout-js/-/opentok-layout-js-3.4.0.tgz#55cc4ec40fcb2c2348738a128996d98d27a37722"
+  integrity sha512-V1Kl1v9HcW1r+qNejAdbawVhtqGu4LMXbRK5UebaVTSbNvJvGXRrwLuLkntxXnf8l2Zp4eXzjSoJ8k0CZu8eWQ==
 
 opn@^5.5.0:
   version "5.5.0"

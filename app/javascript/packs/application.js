@@ -7,6 +7,8 @@ import "regenerator-runtime/runtime"
 
 import ujs from "@rails/ujs"
 
+import "opentok-layout-js"
+
 ujs.start()
 
 
