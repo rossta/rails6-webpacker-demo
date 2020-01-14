@@ -4,10 +4,26 @@
 // that code so it'll be compiled.
 import "core-js/stable"
 import "regenerator-runtime/runtime"
+// import '../stylesheets/application'
+window.jQuery = $
+window.$      = $
 
-import ujs from "@rails/ujs"
+import 'leaflet'
+import 'leaflet.timeline'
 
-ujs.start()
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require("trix")
+require("@rails/actiontext")
+require("jquery")
+import "bootstrap"
+import 'bootstrap/dist/js/bootstrap'
+
+document.addEventListener("turbolinks:load", () => {
+  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover()
+})
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
