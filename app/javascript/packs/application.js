@@ -9,6 +9,17 @@ import ujs from "@rails/ujs"
 
 ujs.start()
 
+// See
+// https://github.com/rails/webpacker/issues/2456
+
+import Flickity from 'flickity'
+
+document.addEventListener('DOMContentLoaded', () => {
+  const elem = document.querySelector('.main-carousel');
+  const flkty = new Flickity(elem, {
+    contain: true
+  });
+})
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
