@@ -1,0 +1,44 @@
+version: '3'
+services:
+  web:
+    build: .
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+    depends_on:
+      - db
+      - chrome
+      - webpacker
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+
+  webpacker:
+    build: .
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/app
+    ports:
+      - '3035:3035'
+
+  chrome:
+    image: selenium/standalone-chrome-debug
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - '4444:4444'
