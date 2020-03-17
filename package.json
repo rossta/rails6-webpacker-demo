@@ -9,5 +9,8 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"
+  },
+  "resolutions": {
+    "acorn": "^6.4.1"
   }
 }
