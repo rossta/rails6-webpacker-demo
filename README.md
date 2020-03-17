@@ -11,3 +11,13 @@ Check out the [branches in the main repository](https://github.com/rossta/rails6
 * [Select2 demo](https://github.com/rossta/rails6-webpacker-demo/compare/example/select2)
 * [Gmaps4Rails demo](https://github.com/rossta/rails6-webpacker-demo/compare/example/gmaps4rails)
 * [Chosen demo](https://github.com/rossta/rails6-webpacker-demo/compare/example/chosen)
+
+## Storybook for React
+
+Follow steps from the Storybook for React guide: https://storybook.js.org/docs/guides/guide-react/
+
+For this project, I ran:
+
+```
+npx -g @storybook/cli sb init
+```
