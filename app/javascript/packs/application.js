@@ -18,3 +18,8 @@ ujs.start()
 // const imagePath = (name) => images(name, true)
 
 console.log('application.js loaded')
+
+console.log('dotenv ENV vars', {
+  CDN_ENDPOINT: process.env.CDN_ENDPOINT,
+  APP_ENDPOINT: process.env.APP_ENDPOINT,
+})
