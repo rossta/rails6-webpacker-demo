@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+env=${RAILS_ENV:-development}
+RAILS_ENV=${env} node -e "console.dir(require(\"./config/webpack/${env}\"), { depth: null })"
