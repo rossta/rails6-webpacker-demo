@@ -5,4 +5,20 @@ if (process.env.WEBPACK_ANALYZE === "true") {
   environment.plugins.append('BundleAnalyzerPlugin', new BundleAnalyzerPlugin())
 }
 
+environment.splitChunks(
+  (config) => (
+    {
+      ...config,
+      ...{
+        optimization: {
+          splitChunks: {
+            chunks: 'all',
+            name: true
+          }
+        }
+      }
+    }
+  )
+)
+
 module.exports = environment
