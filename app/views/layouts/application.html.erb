@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_packs_with_chunks_tag 'application', 'posts', 'comments', media: 'all' %>
+    <%= javascript_packs_with_chunks_tag 'application', 'posts', 'comments' %>
   </head>
 
   <body>
