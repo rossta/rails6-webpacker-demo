@@ -1,2 +1,2 @@
 rails: bin/rails s
-webpack: bin/webpack-dev-server
+webpack: WEBPACK_ANALYZE=true npx webpack-dashboard -- bin/webpack-dev-server

@@ -9,10 +9,15 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-dashboard": "^3.2.0",
     "webpack-dev-server": "^3.11.0"
   },
   "resolutions": {
     "acorn": "^6.4.1",
     "minimist": "^1.2.2"
+  },
+  "scripts": {
+    "build:json": "RAILS_ENV=production NODE_ENV=production bin/webpack --profile --json > tmp/webpack-stats.json",
+    "build:analyze": "yarn build:json && webpack-bundle-analyzer tmp/webpack-stats.json public/packs"
   }
 }
