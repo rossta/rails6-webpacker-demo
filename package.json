@@ -14,5 +14,10 @@
   "resolutions": {
     "acorn": "^6.4.1",
     "minimist": "^1.2.2"
+  },
+  "scripts": {
+    "webpack:build_json": "RAILS_ENV=${RAILS_ENV:-production} NODE_ENV=${NODE_ENV:-production} bin/webpack --json > tmp/webpack-stats.json",
+    "webpack:analyze_json": "webpack-bundle-analyzer tmp/webpack-stats.json public/packs",
+    "webpack:analyze": "yarn webpack:build_json && yarn webpack:analyze_json"
   }
 }
