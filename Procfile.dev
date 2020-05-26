@@ -1,2 +1,2 @@
 rails: bin/rails s
-webpack: bin/webpack-dev-server
+webpack: WEBPACK_ANALYZE=true bin/webpack-dev-server
