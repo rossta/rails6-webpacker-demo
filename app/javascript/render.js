@@ -1,7 +1,9 @@
 import ReactDOM from 'react-dom'
 
-export default function (component) {
-  document.addEventListener('DOMContentLoaded', () => {
+import ready from './ready'
+
+export default function render(component) {
+  ready(() => {
     ReactDOM.render(
       component,
       document.body.appendChild(document.createElement('div')),

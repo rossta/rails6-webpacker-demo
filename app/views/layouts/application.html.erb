@@ -5,8 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_packs_with_chunks_tag 'application', 'posts', 'comments', media: 'all' %>
-    <%= javascript_packs_with_chunks_tag 'application', 'posts', 'comments' %>
+    <%= Gon::Base.render_data %>
+    <%= stylesheet_packs_with_chunks_tag 'application', media: 'all' %>
+    <%= javascript_packs_with_chunks_tag 'application' %>
   </head>
 
   <body>
