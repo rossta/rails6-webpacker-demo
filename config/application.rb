@@ -31,5 +31,9 @@ module Rails6Webpacker
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    if ENV["RAILS_LOG_TO_STDOUT"].present?
+      config.logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
+    end
   end
 end

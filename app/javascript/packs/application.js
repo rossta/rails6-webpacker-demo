@@ -9,7 +9,6 @@ import ujs from "@rails/ujs"
 
 ujs.start()
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -18,3 +17,9 @@ ujs.start()
 // const imagePath = (name) => images(name, true)
 
 console.log('application.js loaded')
+
+window.addEventListener('DOMContentLoaded', () => {
+  const div = document.createElement('div')
+  div.innerText = 'Dynamic content!'
+  document.body.appendChild(div)
+})
