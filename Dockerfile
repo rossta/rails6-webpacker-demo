@@ -1,8 +1,8 @@
 FROM ruby:2.7
 
 RUN curl https://deb.nodesource.com/setup_12.x | bash
-RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get update -qq && \
   apt-get install -y nodejs yarn postgresql-client apt-transport-https ca-certificates
@@ -11,10 +11,11 @@ ENV APP /app
 RUN mkdir $APP
 WORKDIR $APP
 
-COPY Gemfile* $APP/
+COPY Gemfile* package.json yarn.lock $APP/
+
 RUN gem install bundler -v2.1.2
 RUN bundle install
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 COPY . $APP
 

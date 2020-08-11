@@ -1,40 +1,87 @@
 version: '3'
 services:
-  web:
+  base: &base
     build: .
+    image: rails6-webpacker-demo:1.0.0
+    tmpfs:
+      - /tmp
+  rails: &rails
+    <<: *base
+    stdin_open: true
+    tty: true
     environment:
-      POSTGRES_HOST: db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      WEBPACKER_DEV_SERVER_HOST: webpacker
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+      - NODE_ENV=${NODE_ENV:-development}
+      - RAILS_ENV=${RAILS_ENV:-development}
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
+      - BOOTSNAP_CACHE_DIR=/usr/local/bundle/_bootsnap
+      - HISTFILE=/app/log/.bash_history
+      - PSQL_HISTFILE=/app/log/.psql_history
+      - EDITOR=vi
+      - MALLOC_ARENA_MAX=2
+      - WEB_CONCURRENCY=${WEB_CONCURRENCY:-1}
     volumes:
-      - .:/app
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+      - rails_cache:/app/tmp/cache
+      - node_modules:/app/node_modules
+      - packs:/app/public/packs
+      - .psqlrc:/root/.psqlrc:ro
+
+  web:
+    <<: *rails
+    depends_on:
+      - postgres
+      - webpacker
+    ports:
+      - '3000:3000'
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+
+  runner:
+    <<: *rails
+    depends_on:
+      - postgres
     ports:
       - '3000:3000'
       - '3001:3001'
-    depends_on:
-      - db
-      - chrome
-      - webpacker
+    command: /bin/bash
 
-  db:
+  test:
+    <<: *rails
+    depends_on:
+      - postgres
+      - chrome
+    ports:
+      - '3000:3000'
+      - '3002:3002'
+    command: ./bin/rspec
+
+  postgres:
     image: postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - .psqlrc:/root/.psqlrc:ro
+      - postgres:/var/lib/postgresql/data
+      - ./log:/root/log:cached
 
   webpacker:
-    build: .
+    <<: *base
     environment:
-      WEBPACKER_DEV_SERVER_HOST: webpacker
-    command: ./bin/webpack-dev-server
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
+      - NODE_ENV=${NODE_ENV:-development}
+      - RAILS_ENV=${RAILS_ENV:-development}
     volumes:
-      - .:/app
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+      - node_modules:/app/node_modules
+      - packs:/app/public/packs
     ports:
       - '3035:3035'
+    command: ./bin/webpack-dev-server
 
   chrome:
     image: selenium/standalone-chrome-debug
@@ -42,3 +89,10 @@ services:
       - /dev/shm:/dev/shm
     ports:
       - '4444:4444'
+
+volumes:
+  postgres:
+  bundle:
+  node_modules:
+  rails_cache:
+  packs:
