@@ -2,7 +2,6 @@ version: '3'
 services:
   base: &base
     build: .
-    image: rails6-webpacker-demo:1.0.0
     tmpfs:
       - /tmp
   rails: &rails
@@ -21,14 +20,17 @@ services:
       - PSQL_HISTFILE=/app/log/.psql_history
       - EDITOR=vi
       - MALLOC_ARENA_MAX=2
+      - CHROME_URL=http://chrome:3333
       - WEB_CONCURRENCY=${WEB_CONCURRENCY:-1}
     volumes:
+      # - .:/app
       - .:/app:cached
       - bundle:/usr/local/bundle
       - rails_cache:/app/tmp/cache
       - node_modules:/app/node_modules
       - packs:/app/public/packs
-      - .psqlrc:/root/.psqlrc:ro
+      - packs-test:/app/public/packs-test
+      # - .psqlrc:/root/.psqlrc:ro
 
   web:
     <<: *rails
@@ -43,19 +45,14 @@ services:
     <<: *rails
     depends_on:
       - postgres
-    ports:
-      - '3000:3000'
-      - '3001:3001'
     command: /bin/bash
 
   test:
     <<: *rails
     depends_on:
       - postgres
-      - chrome
     ports:
-      - '3000:3000'
-      - '3002:3002'
+      - '3001:3001'
     command: ./bin/rspec
 
   postgres:
@@ -64,9 +61,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
-      - .psqlrc:/root/.psqlrc:ro
       - postgres:/var/lib/postgresql/data
-      - ./log:/root/log:cached
+      # - .psqlrc:/root/.psqlrc:ro
+      # - ./log:/root/log:cached
 
   webpacker:
     <<: *base
@@ -75,20 +72,28 @@ services:
       - NODE_ENV=${NODE_ENV:-development}
       - RAILS_ENV=${RAILS_ENV:-development}
     volumes:
+      # - .:/app
       - .:/app:cached
       - bundle:/usr/local/bundle
       - node_modules:/app/node_modules
       - packs:/app/public/packs
+      - packs-test:/app/public/packs-test
     ports:
       - '3035:3035'
     command: ./bin/webpack-dev-server
 
   chrome:
-    image: selenium/standalone-chrome-debug
-    volumes:
-      - /dev/shm:/dev/shm
+    image: browserless/chrome:1.31-chrome-stable
+    depends_on:
+      - test
     ports:
-      - '4444:4444'
+      - '3333:3333'
+    environment:
+      # By default, it uses 3000, which is typically used by Rails.
+      PORT: 3333
+      # Set connection timeout to avoid timeout exception during debugging
+      # https://docs.browserless.io/docs/docker.html#connection-timeout
+      CONNECTION_TIMEOUT: 600000
 
 volumes:
   postgres:
@@ -96,3 +101,4 @@ volumes:
   node_modules:
   rails_cache:
   packs:
+  packs-test:
