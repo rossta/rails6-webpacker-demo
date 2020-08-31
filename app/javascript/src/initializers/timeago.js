@@ -1,6 +1,8 @@
 import moment from 'moment'
 
-document.addEventListener('DOMContentLoaded', () => {
+import ready from '../utils/ready'
+
+ready(() => {
   const div = document.createElement('div')
 
   document.querySelectorAll('.timeago').forEach((el) => {

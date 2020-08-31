@@ -11,6 +11,8 @@ import ujs from '@rails/ujs'
 import consumer from '../src/channels/consumer'
 import ApplicationController from '../src/controllers/application/application_controller'
 
+import '../src/initializers'
+import '../src/pages'
 import '../src/application'
 
 ujs.start()
