@@ -10,6 +10,11 @@
   </head>
 
   <body>
+
+    <div data-controller="application">
+      <input data-target="application.message" type="text">
+      <button data-action="click->application#greet">Greet Application Controller</button>
+    </div>
     <%= yield %>
   </body>
 </html>

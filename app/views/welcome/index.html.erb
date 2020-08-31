@@ -1,2 +1,18 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<%= javascript_pack_tag 'welcome', defer: true %>
+<%= javascript_pack_tag 'timeago', defer: true %>
+
+<h1>Welcome</h1>
+
+<div data-controller="welcome">
+  <input data-target="welcome.message" type="text">
+  <button data-action="click->welcome#greet">Greet Welcome Controller</button>
+</div>
+
+<p>The following text should read in human-friendly "time ago" as converted in JavaScript.</p>
+<% timestamp = (rand(10) + 1).hours.ago.iso8601(3) %>
+<div>
+  Posted
+  <span class="timeago" data-timestamp="<%= timestamp %>">
+    <%= timestamp %>
+  </span>
+</div>
