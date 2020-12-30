@@ -177,7 +177,6 @@ DEPENDENCIES
   puma (~> 3.12)
   rails (~> 6.1.0)
   sqlite3
-  tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 5.0)
 
